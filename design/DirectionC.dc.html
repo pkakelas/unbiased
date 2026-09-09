@@ -1,0 +1,107 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600&display=swap">
+  <style>
+    body{margin:0}
+    .root{
+      --paper:#FAF9F6;--ink:#15171B;--ink-2:#565B62;--ink-3:#9A9EA5;--rule:#E4E2DB;--grey:#DCDAD3;--accent:#155E58;
+      --sans:'Relative Book Pro','Relative Book','Relative Pro',Archivo,'Helvetica Neue',Arial,sans-serif;
+      background:var(--paper);color:var(--ink);font-family:var(--sans);font-size:15px;line-height:1.55;
+      padding:36px 40px;display:flex;flex-direction:column;gap:22px;
+    }
+    .root *{box-sizing:border-box}
+    .tag{font-size:10.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--accent)}
+    h1{font-size:27px;font-weight:500;letter-spacing:-.03em;line-height:1.1;margin:0}
+    .why{margin:0;font-size:14px;color:var(--ink-2);line-height:1.5;text-wrap:pretty}
+    .why b{color:var(--ink);font-weight:500}
+    .sketch{border:1px solid var(--rule);background:#fff;padding:0;display:flex;flex-direction:column;flex:1;overflow:hidden}
+    .sk-mast{display:flex;justify-content:space-between;align-items:center;padding:14px 22px;border-bottom:1.5px solid var(--ink)}
+    .bar{background:var(--grey);height:9px;border-radius:1px}
+    .bar.t{height:15px}
+    .bar.s{height:7px}
+    .hero{padding:22px 22px 18px;display:flex;flex-direction:column;gap:9px;border-bottom:1px solid var(--rule)}
+    .bleed{background:#EFEEE8;border-bottom:1px solid var(--rule);padding:18px 22px;display:flex;flex-direction:column;gap:10px}
+    .bleedlbl{font-size:9.5px;letter-spacing:.09em;text-transform:uppercase;color:var(--accent)}
+    .units{display:grid;grid-template-columns:repeat(22,1fr);gap:3px}
+    .u{height:11px;background:var(--grey)}
+    .u.on{background:var(--accent)}
+    .colwrap{padding:20px 22px;display:flex;flex-direction:column;gap:9px}
+    .fn{display:inline-block;width:13px;height:13px;border:1px solid var(--accent);color:var(--accent);font-size:8.5px;line-height:11px;text-align:center;vertical-align:2px}
+    .runline{display:flex;align-items:center;gap:5px}
+    .drawer{margin-top:6px;border-top:1px solid var(--rule);padding:13px 22px 18px;display:flex;flex-direction:column;gap:7px;background:#F5F4EF}
+    .caption{display:flex;flex-direction:column;gap:6px;border-top:1px solid var(--rule);padding-top:12px}
+    .caption span{font-size:13px;color:var(--ink-2);line-height:1.5}
+    .caption b{color:var(--ink);font-weight:500}
+  </style>
+</helmet>
+
+<div class="root" style="--accent: {{accent}}; --paper: {{paper}}; --ink: {{ink}}; --ink-2: {{ink2}}; --ink-3: {{ink3}}; --rule: {{rule}}; --grey: {{grey}}">
+  <div>
+    <span class="tag">Κατεύθυνση Γ · σκίτσο</span>
+    <h1>Μία στήλη</h1>
+  </div>
+  <p class="why">Καμία πλαϊνή στήλη. Μία στενή στήλη κειμένου, <b>σχήματα που πιάνουν όλο το πλάτος</b>, και η προέλευση σε μικρούς αριθμούς μέσα στη ροή που ανοίγουν στο συρτάρι πηγών στο τέλος.</p>
+
+  <div class="sketch">
+    <div class="sk-mast">
+      <div class="bar t" style="width:80px"></div>
+      <div class="bar s" style="width:120px"></div>
+    </div>
+    <div class="hero">
+      <div class="bar t" style="width:86%"></div>
+      <div class="bar t" style="width:54%"></div>
+      <div class="bar s" style="width:70%;margin-top:5px"></div>
+    </div>
+    <div class="bleed">
+      <span class="bleedlbl">Σχήμα σε πλήρες πλάτος</span>
+      <div class="units">
+        <div class="u on"></div><div class="u on"></div><div class="u on"></div><div class="u on"></div>
+        <div class="u on"></div><div class="u on"></div><div class="u on"></div><div class="u on"></div>
+        <div class="u on"></div><div class="u on"></div><div class="u on"></div><div class="u on"></div>
+        <div class="u on"></div><div class="u on"></div><div class="u on"></div><div class="u"></div>
+        <div class="u"></div><div class="u"></div><div class="u"></div><div class="u"></div>
+        <div class="u"></div><div class="u"></div>
+      </div>
+    </div>
+    <div class="colwrap">
+      <div class="bar s" style="width:96%"></div>
+      <div class="runline"><div class="bar s" style="width:84%"></div><span class="fn">1</span></div>
+      <div class="bar s" style="width:92%"></div>
+      <div class="runline"><div class="bar s" style="width:60%"></div><span class="fn">2</span></div>
+      <div class="bar s" style="width:88%"></div>
+      <div class="bar s" style="width:46%"></div>
+    </div>
+    <div class="drawer">
+      <span class="bleedlbl">Συρτάρι πηγών</span>
+      <div class="bar s" style="width:64%"></div>
+      <div class="bar s" style="width:57%"></div>
+    </div>
+  </div>
+
+  <div class="caption">
+    <span><b>Υπέρ.</b> Η πιο ήσυχη ανάγνωση από τις τρεις, και η μόνη που δίνει στα γραφήματα όλο το πλάτος της σελίδας.</span>
+    <span><b>Κατά.</b> Η προέλευση φεύγει από το μάτι. Για έντυπο που πουλάει ιχνηλασιμότητα, αυτό είναι πραγματικό κόστος.</span>
+  </div>
+</div>
+</x-dc>
+<script data-dc-script data-props='{"theme":{"editor":"enum","options":["light","dark"],"default":"light","section":"Θέμα"},"accent":{"editor":"color","default":"#155E58","options":["#155E58","#1E4B7A","#7A3B2E","#4A3A6B"],"section":"Θέμα"},"$preview":{"width":640,"height":880}}'>
+class Component extends DCLogic {
+  renderVals() {
+    var dark = (this.props.theme || 'light') === 'dark';
+    var t = dark
+      ? { paper:'#131519', ink:'#EDEBE5', ink2:'#A8ADB4', ink3:'#787D85', rule:'#2A2E34', grey:'#33383F' }
+      : { paper:'#FAF9F6', ink:'#15171B', ink2:'#565B62', ink3:'#9A9EA5', rule:'#E4E2DB', grey:'#DCDAD3' };
+    t.accent = this.props.accent || (dark ? '#59A9A0' : '#155E58');
+    return t;
+  }
+}
+</script>
+</body>
+</html>

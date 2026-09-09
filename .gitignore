@@ -39,3 +39,6 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# design canvas build output (re-seeded from design/*.dc.html)
+/design/selida-arthrou.html

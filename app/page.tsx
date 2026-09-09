@@ -1,69 +1,98 @@
-import Image from "next/image";
+import Link from "next/link";
+import { stories, type Story } from "@/lib/content";
+import { Masthead, Footer } from "@/components/chrome";
+import { SourceList } from "@/components/provenance";
 
-export default function Home() {
+const statusLabel = {
+  open: "Σε εξέλιξη",
+  corrected: "Διορθώθηκε",
+  closed: "Ολοκληρώθηκε",
+} as const;
+
+function leadFigure(story: Story) {
+  const block = story.blocks.find((b) => b.type === "keyFigures");
+  return block?.type === "keyFigures" ? block.items[0] : undefined;
+}
+
+function accentStyle(story: Story) {
+  return { "--accent": story.accent } as React.CSSProperties;
+}
+
+export default function IndexPage() {
+  const [lead, ...rest] = stories;
+  const figure = leadFigure(lead);
+  const latest = stories
+    .map((s) => s.updated)
+    .sort((a, b) => b.split("/").reverse().join().localeCompare(a.split("/").reverse().join()))[0];
+
   return (
-    <div className="flex flex-col flex-1 items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex flex-1 w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-        <Image
-          className="dark:invert h-5 w-[100px]"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the{" "}
-            <code className="rounded bg-black/[.06] px-1.5 py-0.5 font-mono text-[0.9em] dark:bg-white/[.08]">
-              page.tsx
-            </code>{" "}
-            file.
-          </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Learning
-            </a>{" "}
-            center.
-          </p>
+    <main className="page">
+      <Masthead />
+
+      <section className="intro">
+        <p className="intro-text">
+          Ιστορίες χτισμένες πάνω στα πρακτικά των δημοτικών συμβουλίων. Κάθε
+          αριθμός και κάθε παράθεμα φέρει το σήμα της προέλευσής του.
+        </p>
+        <span className="meta">
+          {stories.length} ιστορίες · τελευταία ενημέρωση {latest}
+        </span>
+      </section>
+
+      <Link href={`/stories/${lead.slug}`} className="lead-story" style={accentStyle(lead)}>
+        <div className="lead-main">
+          <div className="kicker">
+            {lead.kicker.map((k, i) => (
+              <span key={i}>{k}</span>
+            ))}
+          </div>
+          <h2>{lead.title}</h2>
+          <p>{lead.dek}</p>
+          <span className={`meta status s-${lead.status}`}>
+            <span className="dot" />
+            {statusLabel[lead.status]} · ενημερώθηκε {lead.updated}
+          </span>
         </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
-          <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert h-[14px] w-4"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={14}
-            />
-            Deploy Now
-          </a>
-          <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
-        </div>
-      </main>
-    </div>
+        {figure ? (
+          <div className="lead-figure">
+            <div className="fig-v">
+              {figure.value}
+              {figure.unit ? <span>{figure.unit}</span> : null}
+            </div>
+            <div className="fig-l">{figure.label}</div>
+            <SourceList sources={figure.sources} />
+          </div>
+        ) : null}
+      </Link>
+
+      <ul className="list">
+        {rest.map((s) => (
+          <li key={s.slug} style={accentStyle(s)}>
+            <Link href={`/stories/${s.slug}`}>
+              <div className="li-side">
+                <span className="li-place">{s.kicker[0]}</span>
+                <span className={`meta status s-${s.status}`}>
+                  <span className="dot" />
+                  {statusLabel[s.status]}
+                </span>
+              </div>
+              <div className="li-main">
+                <h3>{s.title}</h3>
+                <p>{s.dek}</p>
+                <span className="meta">
+                  {s.headMeta
+                    .slice(0, 2)
+                    .map((m) => m.value)
+                    .join(" · ")}{" "}
+                  · ενημερώθηκε {s.updated}
+                </span>
+              </div>
+            </Link>
+          </li>
+        ))}
+      </ul>
+
+      <Footer note="Ιστορίες" />
+    </main>
   );
 }

@@ -1,0 +1,240 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600&display=swap">
+  <style>
+    body{margin:0}
+    .root{
+      --paper:#FAF9F6;--panel:#F1F0EA;--ink:#15171B;--ink-2:#565B62;--ink-3:#8B9098;
+      --rule:#E4E2DB;--hair:#CFCCC3;--accent:#155E58;--soft:#DCE9E6;
+      --sans:'Relative Book Pro','Relative Book','Relative Pro',Archivo,'Helvetica Neue',Arial,sans-serif;
+      background:var(--paper);color:var(--ink);font-family:var(--sans);font-size:16.5px;line-height:1.62;
+      font-variant-numeric:tabular-nums;
+    }
+    .root *{box-sizing:border-box}
+    .root a{color:inherit;text-decoration:none;border-bottom:1px solid var(--hair)}
+    .w{padding:0 20px}
+    .meta{font-size:10.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-3);line-height:1.6}
+    .src{display:inline-flex;align-items:flex-start;gap:7px;font-size:10.5px;letter-spacing:.05em;text-transform:uppercase;color:var(--ink-3);line-height:1.5}
+    .mk{width:7px;height:7px;flex:none;margin-top:4px}
+    .mk.c{background:var(--accent);border-radius:50%}
+    .mk.p{background:var(--ink-2);border-radius:50%}
+    .mk.d{border:1.2px solid var(--ink-3);border-radius:50%}
+    .mk.x{border:1.2px solid var(--accent)}
+
+    .mast{display:flex;justify-content:space-between;align-items:center;padding:16px 0;border-bottom:1px solid var(--ink)}
+    .wordmark{font-size:17px;font-weight:600;letter-spacing:-.02em}
+    .burger{display:flex;flex-direction:column;gap:4px}
+    .burger i{width:18px;height:1.5px;background:var(--ink);display:block}
+
+    .head{padding:28px 0 0;display:flex;flex-direction:column;gap:16px}
+    h1{font-size:44px;font-weight:500;line-height:1;letter-spacing:-.035em;margin:0;text-wrap:balance}
+    .dek{font-size:17.5px;line-height:1.45;color:var(--ink-2);margin:0;text-wrap:pretty}
+    .hmeta{display:grid;grid-template-columns:1fr 1fr;gap:14px 18px;padding:16px 0;margin-top:6px;border-top:1px solid var(--rule);border-bottom:1px solid var(--rule)}
+    .hm{display:flex;flex-direction:column;gap:4px}
+    .hm .v{font-size:14.5px;font-weight:500;letter-spacing:-.01em}
+
+    .figs{display:grid;grid-template-columns:1fr 1fr;border-bottom:1px solid var(--rule)}
+    .fig{padding:18px 16px 20px 0;display:flex;flex-direction:column;gap:8px;border-top:1px solid var(--rule)}
+    .fig:nth-child(even){padding-left:16px;border-left:1px solid var(--rule)}
+    .fig .v{font-size:32px;font-weight:500;line-height:1;letter-spacing:-.035em}
+    .fig .v i{font-style:normal;font-size:14px;font-weight:400;color:var(--ink-3);margin-left:3px}
+    .fig .l{font-size:12.5px;line-height:1.4;color:var(--ink-2)}
+
+    p{margin:0 0 1.2em;text-wrap:pretty}
+    .lead{font-size:18.5px;line-height:1.5}
+    .sec{margin-top:38px;display:flex;flex-direction:column;gap:10px}
+    .secno{font-size:10.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--accent)}
+    h2{font-size:25px;font-weight:500;line-height:1.2;letter-spacing:-.025em;margin:0 0 4px}
+    .notes{display:flex;flex-direction:column;gap:6px;margin:-6px 0 22px}
+
+    blockquote{margin:32px 0;padding:0;display:flex;flex-direction:column;gap:14px}
+    blockquote p{font-size:24px;font-weight:400;line-height:1.3;letter-spacing:-.025em;margin:0}
+    blockquote .att{display:flex;flex-direction:column;gap:6px}
+
+    .vs{display:flex;flex-direction:column;border-top:1px solid var(--ink)}
+    .vs>div{padding:18px 0 20px;display:flex;flex-direction:column;gap:10px;border-bottom:1px solid var(--rule)}
+    .vs h4{margin:0;font-size:10.5px;letter-spacing:.1em;text-transform:uppercase;font-weight:500;color:var(--ink-3)}
+    .vs p{font-size:14.5px;line-height:1.5;margin:0;color:var(--ink-2)}
+
+    .tl{display:flex;flex-direction:column;gap:22px;margin-top:8px}
+    .tl .e{position:relative;padding-left:22px;border-left:1px solid var(--rule);display:flex;flex-direction:column;gap:6px}
+    .tl .e::before{content:"";position:absolute;left:-4.5px;top:7px;width:8px;height:8px;border-radius:50%;background:var(--accent)}
+    .tl .e.p::before{background:var(--ink-2)}
+    .tl .e.d::before{background:var(--paper);border:1.2px solid var(--ink-3)}
+    .tl .when{font-size:10.5px;letter-spacing:.09em;text-transform:uppercase;color:var(--ink-3)}
+    .tl .when b{color:var(--ink);font-weight:500}
+    .tl h3{margin:0;font-size:17.5px;font-weight:500;line-height:1.3;letter-spacing:-.018em}
+    .tl p{margin:0;font-size:14.5px;line-height:1.5;color:var(--ink-2)}
+    .tl .gapline{padding-left:22px;border-left:1px solid var(--rule);font-size:10.5px;letter-spacing:.09em;text-transform:uppercase;color:var(--accent)}
+
+    .method{background:var(--panel);padding:18px 20px;font-size:13.5px;line-height:1.6;color:var(--ink-2);margin:34px -20px 0}
+    .method b{color:var(--ink);font-weight:500}
+    .foot{padding:22px 0 30px;font-size:10.5px;letter-spacing:.09em;text-transform:uppercase;color:var(--ink-3)}
+  </style>
+</helmet>
+
+<div class="root" style="--accent: {{accent}}; --paper: {{paper}}; --panel: {{panel}}; --ink: {{ink}}; --ink-2: {{ink2}}; --ink-3: {{ink3}}; --rule: {{rule}}; --hair: {{hair}}; --soft: {{soft}}">
+  <div class="w">
+    <header class="mast">
+      <span class="wordmark">[ΟΝΟΜΑ]</span>
+      <span class="burger"><i></i><i></i><i></i></span>
+    </header>
+
+    <div class="head">
+      <span class="meta">Ρεπορτάζ · Αθήνα · Κυψέλη · Γραμμή 4</span>
+      <h1>Δεκαπέντε χιλιοστά</h1>
+      <p class="dek">Πώς μια «μη διαφορική» καθίζηση 15–18 χιλιοστών έγινε έξι μήνες αβεβαιότητας για μια γειτονιά.</p>
+      <div class="hmeta">
+        <div class="hm"><span class="meta">Πρακτικά</span><span class="v">6 συνεδριάσεις</span></div>
+        <div class="hm"><span class="meta">Τύπος</span><span class="v">9 δημοσιεύματα</span></div>
+        <div class="hm"><span class="meta">Συζήτηση</span><span class="v">3ω 17′ σε τρεις ΔΣ</span></div>
+        <div class="hm"><span class="meta">Κατάσταση</span><span class="v">Ανοιχτό · 09/09</span></div>
+      </div>
+    </div>
+
+    <div class="figs">
+      <div class="fig">
+        <div class="v">15–18<i>mm</i></div>
+        <div class="l">Η καθίζηση που ανακοίνωσε η ΑΒΑΞ στους ενοίκους</div>
+        <span class="src"><span class="mk c"></span>ΔΣ 15/07</span>
+      </div>
+      <div class="fig">
+        <div class="v">68<i>ημέρες</i></div>
+        <div class="l">Από τη στάση του TBM ως τη δημόσια ανακοίνωση</div>
+        <span class="src"><span class="mk x"></span>8/5 → 15/7</span>
+      </div>
+      <div class="fig">
+        <div class="v">14<i>→ 20+</i></div>
+        <div class="l">Κτίρια με δεδομένα, έναντι όσων ελέγχει το ΤΕΕ</div>
+        <span class="src"><span class="mk p"></span>Βήμα 03/09</span>
+      </div>
+      <div class="fig">
+        <div class="v">40<i>ή 200</i></div>
+        <div class="l">Διαμερίσματα κατά τον υφυπουργό, οικογένειες κατά τους κατοίκους</div>
+        <span class="src"><span class="mk p"></span>Έθνος 16/07</span>
+      </div>
+    </div>
+
+    <div class="sec">
+      <p class="lead">Στις 24 Ιουνίου ο Πέτρος Κωνσταντίνου ρώτησε γιατί ο μετροπόντικας «έχει κολλήσει και δεν μπορεί να μπει στην Κυψέλη». Ο αντιδήμαρχος απάντησε ότι εκτιμά πως «πρέπει να έχει ήδη περάσει». Το TBM ήταν ακινητοποιημένο σαράντα επτά ημέρες.</p>
+    </div>
+    <div class="notes">
+      <span class="src"><span class="mk c"></span>ΔΣ 24/06 · 1′05″</span>
+      <span class="src"><span class="mk x"></span>47 ημέρες: 8/5 → 24/6</span>
+    </div>
+
+    <div class="sec">
+      <span class="secno">Ι · Μάρτιος – Μάιος</span>
+      <h2>Το χρονικό ενός διαχειριστή</h2>
+      <p>Ο Χρήστος Ρόκας διάβασε στις 15 Ιουλίου ένα ημερολόγιο στο σώμα. «22, 23, 24, 25 και 26 Μαρτίου άρχισαν να παρουσιάζονται ρηγματώσεις σε τοιχοποιία, να πέφτουν σοβάδες, να αποκολλώνται μάρμαρα.» Σε γενική συνέλευση τούς είπαν ότι η καθίζηση «δεν είναι διαφορική».</p>
+    </div>
+
+    <blockquote>
+      <p>«Τεχνικά αναμενόμενο ρίσκο του έργου και όχι λάθος ή αμέλεια.»</p>
+      <div class="att">
+        <span class="src"><span class="mk d"></span>Επιστολή Ελληνικό Μετρό 6/5, αρ. πρωτ. 83329</span>
+        <span class="src"><span class="mk c"></span>Όπως αναγνώστηκε · ΔΣ 15/07 · 49′28″</span>
+      </div>
+    </blockquote>
+
+    <div class="sec">
+      <span class="secno">ΙΙ · 29 Ιουλίου</span>
+      <h2>Τέσσερις μονάδες στις δέκα</h2>
+    </div>
+    <div class="vs">
+      <div>
+        <h4>Ελληνικό Μετρό · 29/07</h4>
+        <p>«Μικρές ρωγμές και ουδεμία βλάβη στον φέροντα οργανισμό». 15 διαμερίσματα έχουν ήδη επισκευαστεί.</p>
+        <span class="src"><span class="mk c"></span>Καραδήμας · 1ω 12′40″</span>
+      </div>
+      <div>
+        <h4>Δ. Καρύδης, ΕΜΠ · 29/07</h4>
+        <p>«Έχει επιδράσει οπωσδήποτε στον φέροντα οργανισμό». Διευκρίνισε ότι το «τέσσερα στα δέκα» αφορά εντατική κατάσταση.</p>
+        <span class="src"><span class="mk c"></span>Καρύδης · 38′02″</span>
+      </div>
+    </div>
+
+    <div class="sec">
+      <span class="secno">Χρονολόγιο</span>
+      <h2>Από τον πρώτο σοβά ως σήμερα</h2>
+    </div>
+    <div class="tl">
+      <div class="e d">
+        <span class="when"><b>Ιαν 2026</b> · Έγγραφο</span>
+        <h3>Το TBM ακινητοποιείται στην πλατεία</h3>
+        <p>Κατά έγγραφο που επικαλέστηκε ο δικηγόρος των κατοίκων. Δεν έχει δημοσιοποιηθεί.</p>
+        <span class="src"><span class="mk d"></span>ΔΣ 29/07 · 22′14″</span>
+      </div>
+      <div class="e">
+        <span class="when"><b>20 Απρ</b> · Λογοδοσία</span>
+        <h3>«Από το 2029 στο 2032 ή και 2034»</h3>
+        <p>Η πρώτη καταγραφή στο σώμα, τρεις μήνες πριν από το πρώτο δημοσίευμα.</p>
+        <span class="src"><span class="mk c"></span>7′57″</span>
+      </div>
+      <div class="e">
+        <span class="when"><b>24 Ιουν</b> · Δημοτικό Συμβούλιο</span>
+        <h3>«Πρέπει να έχει ήδη περάσει»</h3>
+        <p>Είναι σταματημένος 47 ημέρες.</p>
+        <span class="src"><span class="mk c"></span>ΔΣ 24/06 · 1′05″</span>
+      </div>
+      <div class="gapline">68 ημέρες ως τη δημόσια ανακοίνωση</div>
+      <div class="e">
+        <span class="when"><b>15 Ιουλ</b> · ΔΣ · 55′50″</span>
+        <h3>Οι κάτοικοι στο Δημαρχείο, ο δήμαρχος στον εισαγγελέα</h3>
+        <p>Θέμα προταγμένο ομόφωνα. Κατεπείγουσα προκαταρκτική εξέταση.</p>
+        <span class="src"><span class="mk c"></span>17 ομιλητές</span>
+      </div>
+      <div class="e p">
+        <span class="when"><b>15–16 Ιουλ</b> · Τύπος</span>
+        <h3>«Περίπου 40 διαμερίσματα, όχι 200»</h3>
+        <p>Ο Τύπος πιάνει την ιστορία. Η Μετρό ανακοινώνει πλέον τη στάση του TBM.</p>
+        <span class="src"><span class="mk p"></span>Πρώτο Θέμα · Έθνος</span>
+      </div>
+      <div class="e">
+        <span class="when"><b>29 Ιουλ</b> · ΔΣ · 1ω 42′41″</span>
+        <h3>Η Μετρό στο ΔΣ, και η ομόφωνη απόφαση 481</h3>
+        <p>Ο Δήμος αναλαμβάνει εμπειρογνώμονες και δικηγόρο των κατοίκων.</p>
+        <span class="src"><span class="mk c"></span>Διαύγεια 9Ζ12Ω6Μ-3ΦΕ</span>
+      </div>
+      <div class="e">
+        <span class="when"><b>26 Αυγ</b> · ΔΣ · 38′50″</span>
+        <h3>«Από ανησυχητική, επικίνδυνη»</h3>
+        <p>Ομόφωνη διαβίβαση των στοιχείων 14 κτιρίων στους εμπειρογνώμονες.</p>
+        <span class="src"><span class="mk c"></span>10 ομιλητές</span>
+      </div>
+      <div class="e">
+        <span class="when"><b>9 Σεπ</b> · Σήμερα</span>
+        <h3>Το ΔΣ συνεδριάζει, η Κυψέλη εκτός ημερησίας</h3>
+        <p>Τριάντα θέματα, κανένα για τη Γραμμή 4.</p>
+        <span class="src"><span class="mk x"></span>124 ημέρες σταματημένος</span>
+      </div>
+    </div>
+
+    <div class="method">
+      <b>Μέθοδος.</b> Κάθε απόσπασμα συνδέεται με το ακριβές δευτερόλεπτο του βίντεο. Τα έγγραφα «όπως αναγνώστηκε» τα διάβασε ομιλητής στο σώμα· δεν τα έχουμε δει. Οι αριθμοί με το σήμα του υπολογισμού δείχνουν τα δεδομένα τους.
+    </div>
+    <div class="foot">[ΟΝΟΜΑ] · 09/09/2026</div>
+  </div>
+</div>
+</x-dc>
+<script data-dc-script data-props='{"theme":{"editor":"enum","options":["light","dark"],"default":"light","section":"Θέμα"},"accent":{"editor":"color","default":"#155E58","options":["#155E58","#1E4B7A","#7A3B2E","#4A3A6B"],"section":"Θέμα"},"$preview":{"width":390,"height":3100}}'>
+class Component extends DCLogic {
+  renderVals() {
+    var dark = (this.props.theme || 'light') === 'dark';
+    var t = dark
+      ? { paper:'#131519', panel:'#1B1E23', ink:'#EDEBE5', ink2:'#A8ADB4', ink3:'#787D85', rule:'#2A2E34', hair:'#3A3F46', soft:'#17332F' }
+      : { paper:'#FAF9F6', panel:'#F1F0EA', ink:'#15171B', ink2:'#565B62', ink3:'#8B9098', rule:'#E4E2DB', hair:'#CFCCC3', soft:'#DCE9E6' };
+    t.accent = this.props.accent || (dark ? '#59A9A0' : '#155E58');
+    return t;
+  }
+}
+</script>
+</body>
+</html>

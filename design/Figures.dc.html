@@ -1,0 +1,240 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600&display=swap">
+  <style>
+    body{margin:0}
+    .root{
+      --paper:#FAF9F6;--panel:#F1F0EA;--ink:#15171B;--ink-2:#565B62;--ink-3:#8B9098;
+      --rule:#E4E2DB;--hair:#CFCCC3;--accent:#155E58;--soft:#DCE9E6;
+      --sans:'Relative Book Pro','Relative Book','Relative Pro',Archivo,'Helvetica Neue',Arial,sans-serif;
+      background:var(--paper);color:var(--ink);font-family:var(--sans);font-size:16px;line-height:1.6;
+      font-variant-numeric:tabular-nums;padding:56px 60px;display:flex;flex-direction:column;gap:56px;
+    }
+    .root *{box-sizing:border-box}
+    .meta{font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-3)}
+    .hd{display:flex;flex-direction:column;gap:10px}
+    h1{font-size:40px;font-weight:500;letter-spacing:-.035em;line-height:1.05;margin:0}
+    .intro{margin:0;font-size:17px;color:var(--ink-2);max-width:72ch;text-wrap:pretty}
+
+    .block{display:flex;flex-direction:column;gap:18px;border-top:1px solid var(--ink);padding-top:20px}
+    .bh{display:flex;justify-content:space-between;align-items:baseline;gap:20px;flex-wrap:wrap}
+    h2{font-size:24px;font-weight:500;letter-spacing:-.025em;margin:0}
+    .cap{margin:0;font-size:14.5px;color:var(--ink-2);max-width:78ch;text-wrap:pretty}
+    .foot{font-size:11px;letter-spacing:.055em;text-transform:uppercase;color:var(--ink-3);line-height:1.6}
+
+    /* 1. unit chart */
+    .unit{display:flex;gap:44px;align-items:flex-start;flex-wrap:wrap}
+    .cells{display:grid;grid-template-columns:repeat(22,14px);gap:5px}
+    .cell{width:14px;height:14px}
+    .cell.a{background:var(--accent)}
+    .cell.b{background:var(--soft);border:1px solid var(--accent)}
+    .cell.c{background:var(--ink-3)}
+    .cell.d{border:1px solid var(--hair)}
+    .key{display:flex;flex-direction:column;gap:11px;min-width:230px}
+    .kr{display:flex;align-items:center;gap:11px;font-size:14.5px}
+    .sw{width:14px;height:14px;flex:none}
+    .sw.a{background:var(--accent)}.sw.b{background:var(--soft);border:1px solid var(--accent)}
+    .sw.c{background:var(--ink-3)}.sw.d{border:1px solid var(--hair)}
+    .kr b{font-weight:500;min-width:26px}
+    .big{font-size:54px;font-weight:500;letter-spacing:-.04em;line-height:1}
+    .big i{font-style:normal;color:var(--ink-3)}
+
+    /* 2. value scale */
+    .scale{position:relative;height:210px;margin-top:14px}
+    .axis{position:absolute;left:0;right:0;top:104px;height:1px;background:var(--ink)}
+    .pt{position:absolute;top:100px;width:9px;height:9px;border-radius:50%;background:var(--accent);transform:translate(-50%,-50%)}
+    .lb{position:absolute;display:flex;flex-direction:column;gap:3px;width:150px}
+    .lb .n{font-size:19px;font-weight:500;letter-spacing:-.02em}
+    .lb .t{font-size:12.5px;color:var(--ink-2);line-height:1.35}
+    .lb.up{bottom:118px}
+    .lb.dn{top:118px}
+    .lb.ctr{transform:translateX(-50%)}
+    .lb.rgt{transform:translateX(-100%);text-align:right}
+    .stem{position:absolute;width:1px;background:var(--hair)}
+
+    /* 3. year grid */
+    .years{display:flex;flex-direction:column;gap:9px}
+    .yrow{display:grid;grid-template-columns:repeat(23,1fr);gap:5px}
+    .yr{height:34px;background:var(--panel)}
+    .yr.on{background:var(--accent)}
+    .yr.mid{background:var(--soft);border:1px solid var(--accent)}
+    .yaxis{display:grid;grid-template-columns:repeat(23,1fr);gap:5px;font-size:11px;letter-spacing:.04em;color:var(--ink-3)}
+    .ynote{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:26px;margin-top:6px}
+    .ynote div{display:flex;flex-direction:column;gap:4px;border-top:1px solid var(--rule);padding-top:9px;font-size:13.5px;color:var(--ink-2);line-height:1.4}
+    .ynote b{font-weight:500;color:var(--ink);font-size:14.5px}
+
+    /* marks */
+    .marks{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:0}
+    .marks>div{padding:0 26px 0 0;border-right:1px solid var(--rule);display:flex;flex-direction:column;gap:9px}
+    .marks>div+div{padding-left:26px}
+    .marks>div:last-child{border-right:0}
+    .mrow{display:flex;align-items:center;gap:10px}
+    .mk{width:11px;height:11px;flex:none}
+    .mk.c{background:var(--accent);border-radius:50%}
+    .mk.p{background:var(--ink-2);border-radius:50%}
+    .mk.d{border:1.5px solid var(--ink-3);border-radius:50%}
+    .mk.x{border:1.5px solid var(--accent)}
+    .mrow b{font-size:15px;font-weight:500;letter-spacing:-.01em}
+    .marks p{margin:0;font-size:13.5px;color:var(--ink-2);line-height:1.5}
+  </style>
+</helmet>
+
+<div class="root" style="--accent: {{accent}}; --paper: {{paper}}; --panel: {{panel}}; --ink: {{ink}}; --ink-2: {{ink2}}; --ink-3: {{ink3}}; --rule: {{rule}}; --hair: {{hair}}; --soft: {{soft}}">
+
+  <div class="hd">
+    <span class="meta">Σύστημα · τύποι δεδομένων</span>
+    <h1>Τρία σχήματα για τα ίδια πρακτικά</h1>
+    <p class="intro">Οι τρεις ιστορίες δίνουν τρία σχήματα δεδομένων: ένα σύνολο που μοιράζεται σε κατηγορίες, μια κλίμακα τιμών με ακραίες αποστάσεις, και ένας χρόνος που μετριέται σε χρόνια. Η σελίδα άρθρου έχει μία θέση για σχήμα, και το σχήμα αλλάζει ανά ιστορία.</p>
+  </div>
+
+  <div class="block">
+    <div class="bh">
+      <h2>Σύνολο και κατηγορίες</h2>
+      <span class="meta">Χανιά · Δημοτική Αγορά · 07/09/2026</span>
+    </div>
+    <p class="cap">Ένα τετράγωνο ανά κατάστημα. Το σύνολο διαβάζεται με τη μία, και η σύνθεσή του δεν χρειάζεται δεύτερο γράφημα.</p>
+    <div class="unit">
+      <div class="cells">
+        <sc-for list="{{cells}}" as="c" hint-placeholder-count="66">
+          <div class="cell {{c.k}}"></div>
+        </sc-for>
+      </div>
+      <div class="key">
+        <div class="big">59<i>/66</i></div>
+        <div class="kr"><span class="sw a"></span><b>29</b><span>παλιοί μισθωτές</span></div>
+        <div class="kr"><span class="sw b"></span><b>30</b><span>από δημοπρασία</span></div>
+        <div class="kr"><span class="sw c"></span><b>5</b><span>δεσμευμένα από τον Δήμο</span></div>
+        <div class="kr"><span class="sw d"></span><b>2</b><span>άγονα (Ν5, Ν8)</span></div>
+      </div>
+    </div>
+    <span class="foot">ΔΣ Χανίων 05/08 και 07/09 · απολογισμός αντιδημάρχου Οικονομικών</span>
+  </div>
+
+  <div class="block">
+    <div class="bh">
+      <h2>Κλίμακα τιμών</h2>
+      <span class="meta">Χανιά · μηνιαία μισθώματα</span>
+    </div>
+    <p class="cap">Γραμμική κλίμακα από το μηδέν. Η στοίβαξη στα αριστερά δεν είναι ελάττωμα του γραφήματος· είναι η ίδια η είδηση.</p>
+    <div class="scale">
+      <div class="axis"></div>
+      <div class="pt" style="left:3%"></div>
+      <div class="stem" style="left:3%;top:74px;height:30px"></div>
+      <div class="lb up ctr" style="left:3%"><span class="n">189 €</span><span class="t">ελάχιστο 2022</span></div>
+
+      <div class="pt" style="left:6.9%"></div>
+      <div class="stem" style="left:6.9%;top:105px;height:30px"></div>
+      <div class="lb dn ctr" style="left:6.9%"><span class="n">435 €</span><span class="t">μέσος όρος 2022</span></div>
+
+      <div class="pt" style="left:11.1%"></div>
+      <div class="stem" style="left:11.1%;top:44px;height:60px"></div>
+      <div class="lb up ctr" style="left:11.1%;bottom:148px"><span class="n">700 €</span><span class="t">τιμή εκκίνησης δημοπρασίας</span></div>
+
+      <div class="pt" style="left:14%"></div>
+      <div class="stem" style="left:14%;top:105px;height:60px"></div>
+      <div class="lb dn ctr" style="left:14%;top:148px"><span class="n">880 €</span><span class="t">μέγιστο 2022</span></div>
+
+      <div class="pt" style="left:38.1%"></div>
+      <div class="stem" style="left:38.1%;top:74px;height:30px"></div>
+      <div class="lb up ctr" style="left:38.1%"><span class="n">2.400 €</span><span class="t">παλιά μισθώτρια, ΔΣ 05/08</span></div>
+
+      <div class="pt" style="left:39.7%"></div>
+      <div class="stem" style="left:39.7%;top:105px;height:30px"></div>
+      <div class="lb dn ctr" style="left:39.7%"><span class="n">&lt; 2.500 €</span><span class="t">«οι παλιοί», κατά Αλόγλου 29/07</span></div>
+
+      <div class="pt" style="left:100%"></div>
+      <div class="stem" style="left:100%;top:74px;height:30px"></div>
+      <div class="lb up rgt" style="left:100%"><span class="n">6.300 €</span><span class="t">πλειοδοσία ομοειδούς, Ιούνιος</span></div>
+    </div>
+    <span class="foot">hania.news 24/08 (στοιχεία 2022) · ΔΕ 11/05 (εκκίνηση) · ΔΣ 29/07 και 05/08 · ποσά όπως ειπώθηκαν, όχι ανά τετραγωνικό</span>
+  </div>
+
+  <div class="block">
+    <div class="bh">
+      <h2>Χρόνος σε χρόνια</h2>
+      <span class="meta">Γουδή · Badminton · 2004–2026</span>
+    </div>
+    <p class="cap">Ένα τετράγωνο ανά έτος. Για μια ιστορία που κράτησε είκοσι δύο χρόνια, η πυκνότητα των σημείων λέει περισσότερα από τις ημερομηνίες.</p>
+    <div class="years">
+      <div class="yrow">
+        <sc-for list="{{years}}" as="y" hint-placeholder-count="23">
+          <div class="yr {{y.k}}"></div>
+        </sc-for>
+      </div>
+      <div class="yaxis">
+        <sc-for list="{{years}}" as="y" hint-placeholder-count="23">
+          <span>{{y.lab}}</span>
+        </sc-for>
+      </div>
+      <div class="ynote">
+        <div><b>2004</b><span>Ολυμπιακοί Αγώνες. Το κτίριο χτίζεται «προσωρινά».</span></div>
+        <div><b>2011</b><span>ΠΔ 187/2011: προβλέπει την κατεδάφιση.</span></div>
+        <div><b>2012</b><span>ΣτΕ 1970/2012: αντισυνταγματική η μονιμοποίηση.</span></div>
+        <div><b>2024</b><span>Εξαγγελία φορέα διαχείρισης. Απρίλιος: λήξη σύμβασης.</span></div>
+        <div><b>2026</b><span>12/7 φωτιά. 26/8 ψήφισμα. 27/8 κατεδάφιση.</span></div>
+      </div>
+    </div>
+    <span class="foot">ΔΣ Αθήνας 20/04, 15/07, 26/08 · ΔΣ Ζωγράφου 11/02, 28/08 · Ναυτεμπορική και ΕφΣυν 27/08</span>
+  </div>
+
+  <div class="block">
+    <div class="bh">
+      <h2>Σήματα προέλευσης</h2>
+      <span class="meta">Σε κάθε αριθμό και κάθε παράθεμα</span>
+    </div>
+    <div class="marks">
+      <div>
+        <div class="mrow"><span class="mk c"></span><b>Πρακτικό</b></div>
+        <p>Ειπώθηκε σε συνεδρίαση. Ο σύνδεσμος πάει στο ακριβές δευτερόλεπτο. Μόνο αυτό μπαίνει σε εισαγωγικά δίπλα σε όνομα.</p>
+      </div>
+      <div>
+        <div class="mrow"><span class="mk d"></span><b>Όπως αναγνώστηκε</b></div>
+        <p>Ομιλητής διάβασε έγγραφο στο σώμα. Δεν το έχουμε δει. Το κοίλο σήμα λέει ακριβώς αυτό.</p>
+      </div>
+      <div>
+        <div class="mrow"><span class="mk p"></span><b>Τύπος</b></div>
+        <p>Δημοσίευμα ή δήλωση εκτός συμβουλίου, πάντα με μέσο και ημερομηνία.</p>
+      </div>
+      <div>
+        <div class="mrow"><span class="mk x"></span><b>Υπολογισμός</b></div>
+        <p>Αριθμός που βγάλαμε εμείς: διάρκειες, αθροίσματα, μέρες. Δείχνει πάντα τα δεδομένα του.</p>
+      </div>
+    </div>
+  </div>
+</div>
+</x-dc>
+<script data-dc-script data-props='{"theme":{"editor":"enum","options":["light","dark"],"default":"light","section":"Θέμα"},"accent":{"editor":"color","default":"#155E58","options":["#155E58","#1E4B7A","#7A3B2E","#4A3A6B"],"section":"Θέμα"},"$preview":{"width":1160,"height":1560}}'>
+class Component extends DCLogic {
+  renderVals() {
+    var dark = (this.props.theme || 'light') === 'dark';
+    var t = dark
+      ? { paper:'#131519', panel:'#1B1E23', ink:'#EDEBE5', ink2:'#A8ADB4', ink3:'#787D85', rule:'#2A2E34', hair:'#3A3F46', soft:'#17332F' }
+      : { paper:'#FAF9F6', panel:'#F1F0EA', ink:'#15171B', ink2:'#565B62', ink3:'#8B9098', rule:'#E4E2DB', hair:'#CFCCC3', soft:'#DCE9E6' };
+    t.accent = this.props.accent || (dark ? '#59A9A0' : '#155E58');
+
+    var cells = [], i;
+    for (i = 0; i < 66; i++) {
+      cells.push({ k: i < 29 ? 'a' : i < 59 ? 'b' : i < 64 ? 'c' : 'd' });
+    }
+    t.cells = cells;
+
+    var marked = { 2004:'on', 2011:'mid', 2012:'on', 2024:'mid', 2026:'on' };
+    var labs = { 2004:'’04', 2009:'’09', 2014:'’14', 2019:'’19', 2024:'’24', 2026:'’26' };
+    var years = [];
+    for (i = 2004; i <= 2026; i++) {
+      years.push({ k: marked[i] || '', lab: labs[i] || '' });
+    }
+    t.years = years;
+    return t;
+  }
+}
+</script>
+</body>
+</html>

@@ -1,0 +1,118 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600&display=swap">
+  <style>
+    body{margin:0}
+    .root{
+      --paper:#FAF9F6;--ink:#15171B;--ink-2:#565B62;--ink-3:#9A9EA5;--rule:#E4E2DB;--grey:#DCDAD3;--accent:#155E58;
+      --sans:'Relative Book Pro','Relative Book','Relative Pro',Archivo,'Helvetica Neue',Arial,sans-serif;
+      background:var(--paper);color:var(--ink);font-family:var(--sans);font-size:15px;line-height:1.55;
+      padding:36px 40px;display:flex;flex-direction:column;gap:22px;
+    }
+    .root *{box-sizing:border-box}
+    .tag{font-size:10.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--accent)}
+    h1{font-size:27px;font-weight:500;letter-spacing:-.03em;line-height:1.1;margin:0}
+    .why{margin:0;font-size:14px;color:var(--ink-2);line-height:1.5;text-wrap:pretty}
+    .why b{color:var(--ink);font-weight:500}
+    .sketch{border:1px solid var(--rule);background:#fff;padding:20px;display:flex;flex-direction:column;gap:14px;flex:1}
+    .sk-mast{display:flex;justify-content:space-between;align-items:center;padding-bottom:10px;border-bottom:1.5px solid var(--ink)}
+    .bar{background:var(--grey);height:9px;border-radius:1px}
+    .bar.t{height:15px}
+    .bar.s{height:7px}
+    .ledger{display:flex;flex-direction:column;gap:0;border-top:1px solid var(--rule)}
+    .lrow{display:grid;grid-template-columns:74px 1fr 66px;gap:16px;align-items:start;padding:11px 0;border-bottom:1px solid var(--rule)}
+    .date{font-size:11px;letter-spacing:.06em;text-transform:uppercase;color:var(--ink-3);padding-top:2px}
+    .cellstack{display:flex;flex-direction:column;gap:7px}
+    .kind{font-size:9.5px;letter-spacing:.08em;text-transform:uppercase;color:var(--ink-3);text-align:right;padding-top:3px}
+    .open{background:#F5F4EF;border-left:2px solid var(--accent);padding:12px 14px;display:flex;flex-direction:column;gap:8px;margin-top:2px}
+    .lbl{font-size:9.5px;letter-spacing:.09em;text-transform:uppercase;color:var(--accent)}
+    .caption{display:flex;flex-direction:column;gap:6px;border-top:1px solid var(--rule);padding-top:12px}
+    .caption span{font-size:13px;color:var(--ink-2);line-height:1.5}
+    .caption b{color:var(--ink);font-weight:500}
+  </style>
+</helmet>
+
+<div class="root" style="--accent: {{accent}}; --paper: {{paper}}; --ink: {{ink}}; --ink-2: {{ink2}}; --ink-3: {{ink3}}; --rule: {{rule}}; --grey: {{grey}}">
+  <div>
+    <span class="tag">Κατεύθυνση Β · σκίτσο</span>
+    <h1>Το μητρώο</h1>
+  </div>
+  <p class="why">Το χρονολόγιο δεν είναι ενότητα μέσα στο άρθρο· <b>είναι το άρθρο</b>. Κάθε γραμμή είναι μια συνεδρίαση ή ένα δημοσίευμα, και το κείμενο ανοίγει μέσα στη γραμμή. Ο αναγνώστης σαρώνει πέντε μήνες σε μία οθόνη.</p>
+
+  <div class="sketch">
+    <div class="sk-mast">
+      <div class="bar t" style="width:88px"></div>
+      <div class="bar s" style="width:130px"></div>
+    </div>
+    <div class="bar t" style="width:74%"></div>
+    <div class="bar s" style="width:52%"></div>
+
+    <div class="ledger">
+      <div class="lrow">
+        <span class="date">20 Απρ</span>
+        <div class="cellstack"><div class="bar" style="width:82%"></div></div>
+        <span class="kind">Πρακτικό</span>
+      </div>
+      <div class="lrow">
+        <span class="date">8 Μαΐ</span>
+        <div class="cellstack"><div class="bar" style="width:66%"></div></div>
+        <span class="kind">Έγγραφο</span>
+      </div>
+      <div class="lrow">
+        <span class="date">24 Ιουν</span>
+        <div class="cellstack">
+          <div class="bar" style="width:90%"></div>
+          <div class="open">
+            <span class="lbl">Ανοιχτή γραμμή · το κείμενο εδώ</span>
+            <div class="bar s" style="width:100%"></div>
+            <div class="bar s" style="width:96%"></div>
+            <div class="bar s" style="width:71%"></div>
+          </div>
+        </div>
+        <span class="kind">Πρακτικό</span>
+      </div>
+      <div class="lrow">
+        <span class="date">15 Ιουλ</span>
+        <div class="cellstack"><div class="bar" style="width:78%"></div></div>
+        <span class="kind">Πρακτικό</span>
+      </div>
+      <div class="lrow">
+        <span class="date">16 Ιουλ</span>
+        <div class="cellstack"><div class="bar" style="width:59%"></div></div>
+        <span class="kind">Τύπος</span>
+      </div>
+      <div class="lrow">
+        <span class="date">26 Αυγ</span>
+        <div class="cellstack"><div class="bar" style="width:85%"></div></div>
+        <span class="kind">Πρακτικό</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="caption">
+    <span><b>Υπέρ.</b> Η χρονολογία και η προέλευση είναι πάντα ορατές. Ταιριάζει σε νήματα που τρέχουν για μήνες και ενημερώνονται συνέχεια.</span>
+    <span><b>Κατά.</b> Δύσκολα κρατά αφήγηση. Μια ιστορία με επιχείρημα, όχι μόνο με σειρά γεγονότων, χάνει δύναμη.</span>
+  </div>
+</div>
+</x-dc>
+<script data-dc-script data-props='{"theme":{"editor":"enum","options":["light","dark"],"default":"light","section":"Θέμα"},"accent":{"editor":"color","default":"#155E58","options":["#155E58","#1E4B7A","#7A3B2E","#4A3A6B"],"section":"Θέμα"},"$preview":{"width":640,"height":880}}'>
+class Component extends DCLogic {
+  renderVals() {
+    var dark = (this.props.theme || 'light') === 'dark';
+    var t = dark
+      ? { paper:'#131519', ink:'#EDEBE5', ink2:'#A8ADB4', ink3:'#787D85', rule:'#2A2E34', grey:'#33383F' }
+      : { paper:'#FAF9F6', ink:'#15171B', ink2:'#565B62', ink3:'#9A9EA5', rule:'#E4E2DB', grey:'#DCDAD3' };
+    t.accent = this.props.accent || (dark ? '#59A9A0' : '#155E58');
+    return t;
+  }
+}
+</script>
+</body>
+</html>
