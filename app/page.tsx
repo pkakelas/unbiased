@@ -2,6 +2,7 @@ import Link from "next/link";
 import { stories, type Story } from "@/lib/content";
 import { Masthead, Footer } from "@/components/chrome";
 import { SourceList } from "@/components/provenance";
+import { StoryImage, StoryThumb, OutletStack } from "@/components/media";
 
 const statusLabel = {
   open: "Σε εξέλιξη",
@@ -40,6 +41,9 @@ export default function IndexPage() {
       </section>
 
       <Link href={`/stories/${lead.slug}`} className="lead-story" style={accentStyle(lead)}>
+        <div className="lead-photo">
+          <StoryImage story={lead} priority />
+        </div>
         <div className="lead-main">
           <div className="kicker">
             {lead.kicker.map((k, i) => (
@@ -51,6 +55,7 @@ export default function IndexPage() {
           <span className={`meta status s-${lead.status}`}>
             <span className="dot" />
             {statusLabel[lead.status]} · ενημερώθηκε {lead.updated}
+            <OutletStack story={lead} />
           </span>
         </div>
         {figure ? (
@@ -70,6 +75,7 @@ export default function IndexPage() {
           <li key={s.slug} style={accentStyle(s)}>
             <Link href={`/stories/${s.slug}`}>
               <div className="li-side">
+                <StoryThumb story={s} />
                 <span className="li-place">{s.kicker[0]}</span>
                 <span className={`meta status s-${s.status}`}>
                   <span className="dot" />
@@ -79,7 +85,8 @@ export default function IndexPage() {
               <div className="li-main">
                 <h3>{s.title}</h3>
                 <p>{s.dek}</p>
-                <span className="meta">
+                <span className="meta status">
+                  <OutletStack story={s} max={4} />
                   {s.headMeta
                     .slice(0, 2)
                     .map((m) => m.value)

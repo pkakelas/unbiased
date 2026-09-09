@@ -3,6 +3,7 @@ import type { Metadata } from "next";
 import { getStory, stories } from "@/lib/content";
 import { BlockView } from "@/components/blocks";
 import { Masthead, Footer } from "@/components/chrome";
+import { StoryImage, OutletIcon } from "@/components/media";
 
 export function generateStaticParams() {
   return stories.map((s) => ({ slug: s.slug }));
@@ -59,6 +60,10 @@ export default async function StoryPage({
           </div>
         </header>
 
+        <div className="wide">
+          <StoryImage story={story} priority />
+        </div>
+
         {story.blocks.map((block, i) => (
           <BlockView key={i} block={block} />
         ))}
@@ -71,10 +76,12 @@ export default async function StoryPage({
               {col.items.map((item, j) =>
                 item.href ? (
                   <a key={j} href={item.href} target="_blank" rel="noreferrer noopener">
+                    <OutletIcon text={item.text} />
                     {item.text}
                   </a>
                 ) : (
                   <span className="item" key={j}>
+                    <OutletIcon text={item.text} />
                     {item.text}
                   </span>
                 ),

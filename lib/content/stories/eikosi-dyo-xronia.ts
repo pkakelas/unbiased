@@ -19,6 +19,13 @@ export const eikosiDyoXronia: Story = {
   updated: "09/09/2026",
   place:
     "Πρώην Ολυμπιακό Κέντρο Γουδή · Στρατόπεδο Ιλάρχου Νικολάου Βαρύτη",
+  image: {
+    src: "/images/eikosi-dyo-xronia.jpg",
+    alt: "Η αίθουσα του Θεάτρου Badminton στο Γουδή",
+    credit: "Fvonglower, Wikimedia Commons",
+    license: "CC BY-SA 3.0",
+    href: "https://commons.wikimedia.org/wiki/File:Badminton_Theater_Auditorium.jpg",
+  },
   headMeta: [
     { label: "Πρακτικά", value: "10 συνεδριάσεις σε 2 δήμους" },
     { label: "Τύπος", value: "6 δημοσιεύματα" },
@@ -213,11 +220,11 @@ export const eikosiDyoXronia: Story = {
           meta: "ΔΣ Αθηναίων · όπως θυμήθηκε στη συνεδρίαση 15/07",
           title: "Προσωρινή άδεια «μόνο για τους Ολυμπιακούς»",
           text: "Απόφαση του ΔΣ Αθήνας το 2002 με ρητή πρόβλεψη κατεδάφισης μετά τους Αγώνες, όπως θύμισε η Άννα Φιλίνη. Χτίζεται το 2004.",
-          source: {
+          sources: [{
             mark: "council",
             label: "Φιλίνη · ΔΣ Αθήνας 15/07",
             href: "https://opencouncil.gr/athens/jul15_2026/subjects/cmrp0q9jj0o57tn0qjn61grjs",
-          },
+          }],
         },
         {
           kind: "council",
@@ -225,11 +232,11 @@ export const eikosiDyoXronia: Story = {
           meta: "ΔΣ Αθηναίων · όπως αναφέρθηκε στη συνεδρίαση 26/08",
           title: "ΠΔ 187/2011 και ΣτΕ 1970/2012",
           text: "Το διάταγμα προβλέπει κατεδάφιση· η Ολομέλεια του ΣτΕ κρίνει αντισυνταγματική τη μονιμοποίηση. Το κτίριο μισθώνεται ως θέατρο, με λήξη σύμβασης τον Απρίλιο του 2026.",
-          source: {
+          sources: [{
             mark: "council",
             label: "Ζωίδης · ΔΣ Αθήνας 26/08",
             href: "https://opencouncil.gr/athens/aug26_2026/subjects/cmt48gqmf061i98hh28p90yhp",
-          },
+          }],
         },
         {
           kind: "gap",
@@ -241,11 +248,11 @@ export const eikosiDyoXronia: Story = {
           meta: "ΔΣ Αθηναίων",
           title: "«Δεν είναι σαφές πώς μπορεί να επισπεύσει ο Δήμος»",
           text: "Η Ό. Κλείτσα ρωτά για την κατεδάφιση «εντός του πρώτου εξαμήνου». Η Μ. Ευαγγελίδου: ο Δήμος έχασε στο ΣτΕ, να υποβληθεί αίτημα στην ΥΔΟΜ.",
-          source: {
+          sources: [{
             mark: "council",
             label: "ΔΣ Αθήνας 11/02",
             href: "https://opencouncil.gr/athens/feb11_2026/subjects/cmq0spsk50c7m6iuzwqfbkvjg",
-          },
+          }],
         },
         {
           kind: "council",
@@ -253,11 +260,11 @@ export const eikosiDyoXronia: Story = {
           meta: "ΔΣ Ζωγράφου",
           title: "«Μπουζουξίδικα» στο πάρκο;",
           text: "Ο Α. Καραβίδας ανησυχεί για άδειες καταστημάτων από την Αθήνα πίσω από το Badminton. Ο Ζ. Σταματάκης: οι τρεις δήμοι ζητούν μόνο πάρκο και φορέα ελεγχόμενο από την αυτοδιοίκηση.",
-          source: {
+          sources: [{
             mark: "council",
             label: "ΔΣ Ζωγράφου 19/02",
             href: "https://opencouncil.gr/zografou/feb19_2026/subjects/cmqaam8bk00qkynetm77erqns",
-          },
+          }],
         },
         {
           kind: "council",
@@ -265,11 +272,11 @@ export const eikosiDyoXronia: Story = {
           meta: "ΔΣ Αθηναίων",
           title: "«Πρέπει να γκρεμίζει κιόλας»",
           text: "Ο Κ. Ζαχαριάδης: 22 χρόνια «προσωρινό», το ΣτΕ δικαίωσε τους κατοίκους.",
-          source: {
+          sources: [{
             mark: "council",
             label: "ΔΣ Αθήνας 20/04",
             href: "https://opencouncil.gr/athens/apr20_3_2026/subjects/cmobgtq740b3lk6cmzhw1bog2",
-          },
+          }],
         },
         {
           kind: "council",
@@ -277,11 +284,11 @@ export const eikosiDyoXronia: Story = {
           meta: "ΔΣ Αθηναίων",
           title: "Η σύμβαση έληξε τον Απρίλιο",
           text: "Η Δ. Αλεβυζάκη ζητά ο Δήμος να πιέσει για άμεση απελευθέρωση του χώρου.",
-          source: {
+          sources: [{
             mark: "council",
             label: "ΔΣ Αθήνας 25/05",
             href: "https://opencouncil.gr/athens/may25_2026/subjects/cmpo0k2fq0fl913y41zmdcouc",
-          },
+          }],
         },
         {
           kind: "council",
@@ -289,12 +296,12 @@ export const eikosiDyoXronia: Story = {
           meta: "ΔΣ Αθηναίων",
           title: "Η έκθεση αυτοψίας που δεν βρίσκεται",
           text: "Έγγραφο της Περιφέρειας: η ΥΔΟΜ δεν εντοπίζει τελεσίδικη έκθεση αυθαιρέτου. Ο Π. Χαρλαύτης: θα γίνει αυτοψία, αλλά «το ακίνητο είναι μέσα στον στρατό». Ο Π. Κωνσταντίνου ρωτά ξανά δύο εβδομάδες μετά.",
-          source: {
+          sources: [{
             mark: "council",
             label: "ΔΣ Αθήνας 10/06 & 24/06",
             href: "https://opencouncil.gr/athens/jun10_2026/subjects/cmqb3bcwk039upn1trab45tc2",
-          },
-          tag: { text: "χωρίς έγγραφο", tone: "yellow" },
+          }],
+          tag: "pending",
         },
         {
           kind: "press",
@@ -302,11 +309,11 @@ export const eikosiDyoXronia: Story = {
           meta: "Τύπος · Σάββατο 20:30",
           title: "Φωτιά στο Badminton",
           text: "112, κλειστή Μεσογείων, 38 πυροσβέστες, 10 υδροφόρες. Κατάρρευση τμήματος της στέγης. Τα αίτια στη ΔΑΕΕ.",
-          source: {
+          sources: [{
             mark: "press",
             label: "in.gr 12/07 · LiFO · GOVNews",
             href: "https://www.in.gr/2026/07/12/greece/pyrkagia-sto-palio-ktirio-tou-mpantminton-sto-parko-goudi/",
-          },
+          }],
         },
         {
           kind: "council",
@@ -314,11 +321,11 @@ export const eikosiDyoXronia: Story = {
           meta: "ΔΣ Αθηναίων",
           title: "«Η πυρκαγιά αποτελεί ευκαιρία»",
           text: "Βουρδουμπάς: κρουνοί που δεν λειτουργούσαν. Κωνσταντίνου: δεν δόθηκε ο λόγος στους κατοίκους. Ευαγγελίδου: συνάντηση με ΥΠΕΘΑ την επόμενη εβδομάδα. Χαρλαύτης: αυτοψία για τα επικίνδυνα.",
-          source: {
+          sources: [{
             mark: "council",
             label: "ΔΣ Αθήνας 15/07",
             href: "https://opencouncil.gr/athens/jul15_2026/subjects/cmrp0q9jj0o57tn0qjn61grjs",
-          },
+          }],
         },
         {
           kind: "council",
@@ -326,11 +333,11 @@ export const eikosiDyoXronia: Story = {
           meta: "ΔΣ Ζωγράφου",
           title: "Ηχητικό σύστημα εκκένωσης στο πάρκο",
           text: "Πρόταση Κ. Παπαναστασόπουλου «με αφορμή την πρόσφατη πυρκαγιά».",
-          source: {
+          sources: [{
             mark: "council",
             label: "ΔΣ Ζωγράφου 23/07",
             href: "https://opencouncil.gr/zografou/jul23_2026/subjects/cms0lvpss013kzi3dgud0fg8g",
-          },
+          }],
         },
         {
           kind: "council",
@@ -338,12 +345,12 @@ export const eikosiDyoXronia: Story = {
           meta: "ΔΣ Αθηναίων · 47′",
           title: "Ομόφωνο ψήφισμα: «άμεση κατεδάφιση»",
           text: "Τέσσερα σημεία Δούκα. Χαρλαύτης: το ΥΠΕΘΑ επιβεβαίωσε κυριότητα, αυτοψία χωρίς πόρισμα. Μπακογιάννης: διαπαραταξιακή επιτροπή και συνάντηση με τον υπουργό. Απόφαση 537/26-08-2026.",
-          source: {
+          sources: [{
             mark: "council",
             label: "ΔΣ Αθήνας 26/08 · ΑΔΑ 968ΦΩ6Μ-025",
             href: "https://opencouncil.gr/athens/aug26_2026/subjects/cmt48gqmf061i98hh28p90yhp",
-          },
-          tag: { text: "ομόφωνα", tone: "green" },
+          }],
+          tag: "unanimous",
         },
         {
           kind: "press",
@@ -351,12 +358,11 @@ export const eikosiDyoXronia: Story = {
           meta: "Τύπος · Πέμπτη πρωί",
           title: "«Επιτέλους!» — ξεκινά η κατεδάφιση",
           text: "Με εντολή Ν. Δένδια, το ΥΠΕΘΑ γκρεμίζει το Badminton επικαλούμενο τη ΣτΕ 1970/2012 και την πλήρη κυριότητα του ακινήτου.",
-          source: {
+          sources: [{
             mark: "press",
             label: "Ναυτεμπορική 27/08 · ΕφΣυν · ΣΚΑΪ",
             href: "https://www.naftemporiki.gr/politics/2154147/katedafizetai-to-ktirio-toy-badminton-me-entoli-nikoy-dednia-vinteo-kai-fotografies/",
-          },
-          tag: { text: "από το ΥΠΕΘΑ", tone: "red" },
+          }],
         },
         {
           kind: "council",
@@ -364,11 +370,11 @@ export const eikosiDyoXronia: Story = {
           meta: "ΔΣ Ζωγράφου",
           title: "Ψήφισμα για διαδημοτικό φορέα",
           text: "Παπαναστασόπουλος: με αφορμή την απόφαση της Αθήνας και την κατεδάφιση από το ΥΠΕΘΑ. Μπότου: «να χαιρετιστεί η άμεση αντίδραση του Υπουργείου». Την ίδια μέρα, ομόφωνη παραχώρηση του πάρκου στο Χαμόγελο του Παιδιού για 18–20/9.",
-          source: {
+          sources: [{
             mark: "council",
             label: "ΔΣ Ζωγράφου 28/08",
             href: "https://opencouncil.gr/zografou/aug28_2026/subjects/cmte7700h0edm12yktvchric2",
-          },
+          }],
         },
       ],
     },

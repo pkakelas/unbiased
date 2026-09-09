@@ -1,6 +1,7 @@
 import type { Block } from "@/lib/content/types";
 import { SourceLine, SourceList } from "./provenance";
 import { FigureView } from "./figures";
+import { tags } from "@/lib/content/tags";
 
 function SectionHead({
   numeral,
@@ -114,14 +115,12 @@ export function BlockView({ block }: { block: Block }) {
                     <span className="meta">{e.meta}</span>
                   </div>
                   <div className={`tl-item k-${e.kind}`}>
-                    <h3>
-                      {e.title}
-                      {e.tag ? (
-                        <span className={`tag t-${e.tag.tone}`}>{e.tag.text}</span>
-                      ) : null}
-                    </h3>
+                    <h3>{e.title}</h3>
+                    {e.tag ? (
+                      <span className={`tag t-${tags[e.tag].tone}`}>{tags[e.tag].label}</span>
+                    ) : null}
                     <p>{e.text}</p>
-                    <SourceLine source={e.source} />
+                    <SourceList sources={e.sources} />
                   </div>
                 </div>
               ),

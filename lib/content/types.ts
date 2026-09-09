@@ -3,6 +3,8 @@
  * number and every quotation, so a reader can tell a verbatim minute from a
  * document nobody outside the chamber has seen.
  */
+import type { TagKind } from "./tags";
+
 export type Mark = "council" | "document" | "press" | "calc";
 
 export type Source = {
@@ -78,8 +80,8 @@ export type TimelineEntry =
       meta: string;
       title: string;
       text: string;
-      source: Source;
-      tag?: { text: string; tone: "green" | "yellow" | "red" };
+      sources: Source[];
+      tag?: TagKind;
     };
 
 export type Block =
@@ -109,6 +111,8 @@ export type Story = {
   status: "open" | "corrected" | "closed";
   updated: string;
   place: string;
+  /** Local path under /public. Credit and licence are shown beside it. */
+  image?: { src: string; alt: string; credit: string; license: string; href: string };
   headMeta: { label: string; value: string }[];
   blocks: Block[];
   sources: { heading: string; items: { text: string; href?: string }[] }[];

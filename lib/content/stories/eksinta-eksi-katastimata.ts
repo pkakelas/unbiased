@@ -16,6 +16,13 @@ export const eksintaEksiKatastimata: Story = {
   status: "open",
   updated: "09/09/2026",
   place: "Πλατεία Σοφοκλή Βενιζέλου · κλειστή από τις αρχές του 2022",
+  image: {
+    src: "/images/eksinta-eksi-katastimata.jpg",
+    alt: "Η Δημοτική Αγορά Χανίων",
+    credit: "C messier, Wikimedia Commons",
+    license: "CC BY-SA 4.0",
+    href: "https://commons.wikimedia.org/wiki/File:Δημοτική_Αγορά_Χανίων_7552.jpg",
+  },
   headMeta: [
     { label: "Πρακτικά", value: "8 συνεδριάσεις" },
     { label: "Τύπος", value: "6 δημοσιεύματα" },
@@ -260,7 +267,7 @@ export const eksintaEksiKatastimata: Story = {
           meta: "Τύπος",
           title: "Εξωδικαστικός συμβιβασμός με τους παλιούς",
           text: "Δικαίωμα επιστροφής με 6ετή μίσθωση, ένα κατάστημα ανά ΑΦΜ. Η αγορά κλείνει αρχές 2022 για άρση ετοιμορροπίας και ενεργειακή αναβάθμιση.",
-          source: { mark: "press", label: "hania.news 24/08" },
+          sources: [{ mark: "press", label: "hania.news 24/08" }],
         },
         {
           kind: "council",
@@ -268,11 +275,11 @@ export const eksintaEksiKatastimata: Story = {
           meta: "Δημοτική Επιτροπή",
           title: "19 κενά καταστήματα, εκκίνηση 700 €",
           text: "Όροι διακήρυξης· εστίαση μόνο στα 3/6 του βόρειου άξονα.",
-          source: {
+          sources: [{
             mark: "council",
             label: "ΔΕ 11/05",
             href: "https://opencouncil.gr/chania/may11_2026/subjects/cmovfhsgi06f311n6ucmgi7rq",
-          },
+          }],
         },
         {
           kind: "press",
@@ -280,7 +287,7 @@ export const eksintaEksiKatastimata: Story = {
           meta: "Τύπος & φορείς",
           title: "«Ιδιαίτερα υψηλά» λέει ο Σύλλογος Καταστηματαρχών",
           text: "Αντίδραση για τιμές, 16ωρο ωράριο, μικρά μαγαζιά και δύο σκαλιά στη νότια είσοδο.",
-          source: { mark: "press", label: "hania.news 12/05" },
+          sources: [{ mark: "press", label: "hania.news 12/05" }],
         },
         {
           kind: "council",
@@ -288,11 +295,11 @@ export const eksintaEksiKatastimata: Story = {
           meta: "Δημοτικό Συμβούλιο",
           title: "«Αγνοούν την πραγματικότητα των Χανίων»",
           text: "Ο δήμαρχος υπερασπίζεται τα 700 € ως εύλογα· «το ενδιαφέρον του κόσμου θα επιβεβαιώσει το πλαίσιο».",
-          source: {
+          sources: [{
             mark: "council",
             label: "ΔΣ 20/05",
             href: "https://opencouncil.gr/chania/may20_2026/subjects/cmph1w9341c5811vdw5a2s3r7",
-          },
+          }],
         },
         {
           kind: "press",
@@ -300,7 +307,7 @@ export const eksintaEksiKatastimata: Story = {
           meta: "Τύπος & φορείς",
           title: "Πρώτη δημοπρασία",
           text: "Προφορική πλειοδοτική στην αίθουσα του ΔΣ. Προσφορές έως 6.300 € σε ένα κατάστημα.",
-          source: { mark: "press", label: "ΕΡΤ Χανίων 14/05" },
+          sources: [{ mark: "press", label: "ΕΡΤ Χανίων 14/05" }],
         },
         {
           kind: "council",
@@ -308,11 +315,11 @@ export const eksintaEksiKatastimata: Story = {
           meta: "Δημοτικό Συμβούλιο",
           title: "«Τζάμπα μάγκες»",
           text: "Δήμαρχος: «καμία διάθεση για περισσότερα έσοδα». Αλόγλου: 25 μέρες προκήρυξης, καμία ένσταση — όσοι μιλούν τώρα «εκ του αποτελέσματος» είναι τζάμπα μάγκες. Κλωνιζάκης: επιστολή ιδιώτη απειλεί με ένδικα μέσα αν ευνοηθούν οι παλιοί.",
-          source: {
+          sources: [{
             mark: "council",
             label: "ΔΣ 15/06",
             href: "https://opencouncil.gr/chania/jun15_2026/subjects/cmqh1zhna0e58148d15cwvwbf",
-          },
+          }],
         },
         {
           kind: "council",
@@ -320,11 +327,11 @@ export const eksintaEksiKatastimata: Story = {
           meta: "Δημοτική Επιτροπή",
           title: "Κατακύρωση — και δύο άγονα ιχθυοπωλεία",
           text: "Δ5, Α4, Α14 κατακυρώνονται· Δ1, Δ3 (ψάρια) άγονα. Η Σ. Ελευθεριάδου προτείνει να επιτραπούν κατεψυγμένα.",
-          source: {
+          sources: [{
             mark: "council",
             label: "ΔΕ 30/06 · ΑΔΑ ΨΑΕΩΩΗ5-Β4Τ",
             href: "https://opencouncil.gr/chania/jun30_2026/subjects/cmquvkjwn03hkfmuuf8w7t46v",
-          },
+          }],
         },
         {
           kind: "press",
@@ -332,7 +339,7 @@ export const eksintaEksiKatastimata: Story = {
           meta: "Τύπος & φορείς",
           title: "«Να ανοίξει τις πρώτες μέρες του φθινοπώρου»",
           text: "Αλόγλου: σχεδόν όλα τα καταστήματα δόθηκαν· εκκρεμούν φωτοβολταϊκά και περιβάλλων χώρος.",
-          source: { mark: "press", label: "Dnews 02/07" },
+          sources: [{ mark: "press", label: "Dnews 02/07" }],
         },
         {
           kind: "council",
@@ -340,12 +347,12 @@ export const eksintaEksiKatastimata: Story = {
           meta: "Δημοτικό Συμβούλιο",
           title: "Ο Ροκάκης ζητά συγγνώμη· δεν την παίρνει",
           text: "Ο δήμαρχος: «πολιτική δήλωση». Ο Αλόγλου: κλειστή συνάντηση. Η Μανιμανάκη: το ύφος του Ροκάκη «δεν τιμά το ΔΣ».",
-          source: {
+          sources: [{
             mark: "council",
             label: "ΔΣ 22/07",
             href: "https://opencouncil.gr/chania/jul22_2026/subjects/cmrxq4kpu00sbjy1kl0ozkkxu",
-          },
-          tag: { text: "χωρίς συγγνώμη", tone: "yellow" },
+          }],
+          tag: "refused",
         },
         {
           kind: "document",
@@ -353,10 +360,10 @@ export const eksintaEksiKatastimata: Story = {
           meta: "Πέμπτη απόγευμα",
           title: "Το email με τα ενοίκια",
           text: "Οι 42 παλιοί μαθαίνουν το ποσό του εκτιμητή. Προθεσμία αποδοχής: Τετάρτη 29/7, 15:30 — πέντε εργάσιμες. Το email δεν έχει δημοσιοποιηθεί.",
-          source: {
+          sources: [{
             mark: "document",
             label: "Μανιμανάκη & Παπαδουλάκη · ΔΣ 29/07 & 05/08",
-          },
+          }],
         },
         {
           kind: "gap",
@@ -368,12 +375,12 @@ export const eksintaEksiKatastimata: Story = {
           meta: "Δημοτικό Συμβούλιο",
           title: "«Τριάντα ανταποκρίθηκαν μέχρι τις 3:30»",
           text: "Αίτημα παράτασης απορρίπτεται. Αλόγλου: παλιοί «κάτω από 2.500» έναντι 6.300 στη δημοπρασία. Λουτσέτης: «Μοδιάνο δεν θα γίνουμε;»",
-          source: {
+          sources: [{
             mark: "council",
             label: "ΔΣ 29/07",
             href: "https://opencouncil.gr/chania/jul29_2026/subjects/cms904jxn00i0kiohiyaa75ds",
-          },
-          tag: { text: "χωρίς παράταση", tone: "red" },
+          }],
+          tag: "refused",
         },
         {
           kind: "council",
@@ -381,12 +388,12 @@ export const eksintaEksiKatastimata: Story = {
           meta: "Δημοτικό Συμβούλιο · 1ω 29′",
           title: "29 μένουν, 13 φεύγουν",
           text: "Όροι επανεγκατάστασης· 9ετία αντί 6. Παπαδουλάκη: 2.400 αντί 1.500–2.000. Ο εκτιμητής: «απέκλεισα το υψηλό επενδυτικό ενδιαφέρον». Ομόφωνα, με αποχή Λουτσέτη.",
-          source: {
+          sources: [{
             mark: "council",
             label: "ΔΣ 05/08 · ΑΔΑ 9ΠΑΦΩΗ5-ΣΦΡ",
             href: "https://opencouncil.gr/chania/aug5_2026/subjects/cms8wz5s803y010mi50r3hivj",
-          },
-          tag: { text: "ομόφωνα", tone: "green" },
+          }],
+          tag: "unanimous",
         },
         {
           kind: "council",
@@ -394,11 +401,11 @@ export const eksintaEksiKatastimata: Story = {
           meta: "Δημοτική Επιτροπή",
           title: "13 κενά, εκκίνηση στα 2/3 του εκτιμητή",
           text: "«Η τιμή εκκίνησης έχει σημασία μόνο εκεί που δεν θα υπάρξει ανταγωνισμός.» Δημοπρασία 31/8.",
-          source: {
+          sources: [{
             mark: "council",
             label: "ΔΕ 10/08",
             href: "https://opencouncil.gr/chania/aug10_2026/subjects/cmshgk0r400grzal10p8rzeoo",
-          },
+          }],
         },
         {
           kind: "press",
@@ -406,7 +413,7 @@ export const eksintaEksiKatastimata: Story = {
           meta: "Τύπος & φορείς",
           title: "«Η αλήθεια για τα ενοίκια»: 435 € ο μέσος όρος του 2022",
           text: "Το hania.news δημοσιεύει τα παλιά μισθώματα (189–880 €) και τους όρους του συμβιβασμού του 2021.",
-          source: { mark: "press", label: "hania.news 24/08" },
+          sources: [{ mark: "press", label: "hania.news 24/08" }],
         },
         {
           kind: "council",
@@ -414,11 +421,11 @@ export const eksintaEksiKatastimata: Story = {
           meta: "Δημοτική Επιτροπή",
           title: "59 στα 66",
           text: "11 κατακυρώνονται· Ν5 και Ν8 άγονα, θα ξαναβγούν ως τυροκομικά-αλλαντικά.",
-          source: {
+          sources: [{
             mark: "council",
             label: "ΔΕ 07/09",
             href: "https://opencouncil.gr/chania/sep7_2026/subjects/cmtlieq7j0cnqu36p1ixuxg3e",
-          },
+          }],
         },
         {
           kind: "press",
@@ -426,7 +433,7 @@ export const eksintaEksiKatastimata: Story = {
           meta: "Τύπος & φορείς",
           title: "Το άνοιγμα μετατίθεται",
           text: "Παράταση έως τα τέλη Οκτωβρίου λόγω φωτοβολταϊκών, σύμφωνα με τοπικό δημοσίευμα.",
-          source: { mark: "press", label: "zarpanews" },
+          sources: [{ mark: "press", label: "zarpanews" }],
         },
       ],
     },
